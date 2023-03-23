@@ -1,9 +1,9 @@
 import pandas as pd
 import pymongo
 import json
+import requests
 import config
 import helpers
-import requests
 
 
 # Set up initial parameters for the API call
