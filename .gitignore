@@ -1,1 +1,6 @@
 planning\
+terraform\.terraform
+*.tfvars
+*.hcl
+*.tfstate
+*.backup

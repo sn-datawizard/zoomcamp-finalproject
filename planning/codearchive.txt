@@ -1,0 +1,34 @@
+  terraform {
+  required_version = ">= 0.13"
+  backend "local" {}
+  required_providers {
+    mongodbatlas = {
+      source  = "mongodb/mongodbatlas"
+    }
+  }
+}
+  
+  resource "mongodbatlas_cluster" "my_cluster" {
+    project_id            = var.project_id
+    name                  = "my-cluster"
+    cluster_type          = "REPLICASET"
+    mongo_db_major_version = "4.4"
+    replication_specs {
+      num_shards                = 1
+      num_replicas              = 3
+      instance_size_name        = "M0"
+      disk_size_gb              = 0.512
+      backup_enabled            = false
+      auto_scaling_disk_gb_enabled = false
+      auto_scaling_compute_scale_down_enabled = false
+    }
+  provider_name = "Azure"
+  provider_instance_size_name = "M0"
+
+  database_user_username = var.db_user
+  database_user_password = var.db_password
+
+  private_endpoint_enabled = true
+
+  provision_timeout = "30m"
+}
