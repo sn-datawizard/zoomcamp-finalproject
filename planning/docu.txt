@@ -1,9 +1,0 @@
-# Set up infrastructure with Terraform for MongoDB
-- Install git on Windows
-- Create repository
-- Create PA Token and auth git for push git config --global user.email "you@example.com" git config --global user.name "Your Name"
-- Install Terraform + set Path + restart VScode
-- Create MongoDB organisation
-- Create MongoDB project, API key via Access Manager and add current IP address
-- Create .tf files
-- Cd into terraform folder, run terraform init, plan -var-file=secrets.tfvars, apply -var-file=secrets.tfvars
