@@ -41,4 +41,8 @@ resource "mongodbatlas_database_user" "admin_user" {
     role_name = "readWrite"
     database_name = "worldpopulation"
   }
+   roles {
+    role_name = "readWrite"
+    database_name = "continent_data"
+  }
 }
