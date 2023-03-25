@@ -5,6 +5,10 @@ terraform {
       source = "mongodb/mongodbatlas"
       version = "1.8.1"
     }
+    snowflake = {
+      source = "Snowflake-Labs/snowflake"
+      version = "0.59.0"
+    }    
   }
 }
 
@@ -45,4 +49,17 @@ resource "mongodbatlas_database_user" "admin_user" {
     role_name = "readWrite"
     database_name = "continent_data"
   }
+}
+
+resource "snowflake_database" "population_data" {
+  name = "population_data"
+}
+
+resource "snowflake_schema" "data" {
+  database = "population_data"
+  name     = "data"
+
+  is_transient        = false
+  is_managed          = false
+  data_retention_days = 1
 }

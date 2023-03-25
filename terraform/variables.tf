@@ -27,3 +27,28 @@ variable "db_password" {
   type = string
   default = "$${var.lookup('DB_PASSWORD')}"
 }
+
+variable "account" {
+  type = string
+  default = "hhfxvmd-ki00222"
+}
+
+variable "snow_username" {
+  type = string
+  default = "$${var.lookup('snow_username')}"
+}
+
+variable "snow_password" {
+  type = string
+  default = "$${var.lookup('snow_password')}"
+}
+
+variable "snow_db_user" {
+  type = string
+  default = "$${var.lookup('SNOW_DB_USER')}"
+}
+
+variable "snow_db_password" {
+  type = string
+  default = "$${var.lookup('SNOW_DB_PASSWORD')}"
+}
