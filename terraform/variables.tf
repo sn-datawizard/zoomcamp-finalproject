@@ -30,7 +30,7 @@ variable "db_password" {
 
 variable "account" {
   type = string
-  default = "hhfxvmd-ki00222"
+  default = "<account-identifier>"
 }
 
 variable "snow_username" {
