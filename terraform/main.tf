@@ -52,14 +52,14 @@ resource "mongodbatlas_database_user" "admin_user" {
 }
 
 resource "snowflake_database" "population_data" {
-  name = "population_data"
+  name = "POPULATION_DATA"
 }
 
 resource "snowflake_schema" "data" {
-  database = "population_data"
-  name     = "data"
+  database = "POPULATION_DATA"
+  name     = "DATA"
 
   is_transient        = false
   is_managed          = false
-  data_retention_days = 1
+  data_retention_days = 0
 }
