@@ -8,6 +8,6 @@ provider "snowflake" {
   account     = var.account
   username    = var.snow_username
   password    = var.snow_password
-  role        = "ACCOUNTADMIN"
+  role        = "SYSADMIN"
 }
 
