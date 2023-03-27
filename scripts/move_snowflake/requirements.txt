@@ -1,0 +1,4 @@
+pandas==1.5.2
+pymongo==4.3.2
+sqlalchemy==1.4.47
+snowflake-connector-python[pandas]==3.0.2
