@@ -9,3 +9,4 @@ scripts/__pycache__
 scripts/config.py
 scripts/config2.py
 scripts/config_snow.py
+scripts/mongo_db_delete.py
