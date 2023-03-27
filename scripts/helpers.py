@@ -1,5 +1,9 @@
 import pymongo
 import pandas as pd
+import sqlalchemy
+import snowflake.connector
+from snowflake.connector.pandas_tools import write_pandas
+import time
 
 def connect_mongo(password, database):
     """Establish connection to MongoDB database"""
@@ -18,3 +22,37 @@ def upload_mongo(client, database, collection, dataframe):
     print(collection.count_documents({}))
     dataload = collection.insert_many(dictionary)
     print(collection.count_documents({}))
+
+def read_mongo(client, database, collection):
+    connection = client
+    db = client[f"{database}"]
+    collection = db[f"{collection}"]
+
+    data = list(collection.find())
+    df = pd.DataFrame(data).drop("_id", axis=1)
+    return df   
+
+def connect_snowflake(username, password, account, warehouse, database, schema):
+    conn = snowflake.connector.connect(
+        user=f'{username}',
+        password=f'{password}',
+        account=f'{account}',
+        warehouse=f'{warehouse}',
+        database=f'{database}',
+        schema=f'{schema}'
+    )
+    return conn
+
+
+def write_snowflake(connection, dataframe, table):
+    conn = connection
+    
+    start_time = time.time()
+    write_pandas(conn=connection, df=dataframe, table_name=table, auto_create_table=True, overwrite=True)
+    print(table)
+    print("--- %s seconds ---" % (time.time() - start_time))
+
+
+
+
+
