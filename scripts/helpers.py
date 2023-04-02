@@ -24,6 +24,7 @@ def upload_mongo(client, database, collection, dataframe):
     print(collection.count_documents({}))
 
 def read_mongo(client, database, collection):
+    """Export data stored on MongoDB"""
     connection = client
     db = client[f"{database}"]
     collection = db[f"{collection}"]
@@ -33,6 +34,7 @@ def read_mongo(client, database, collection):
     return df   
 
 def connect_snowflake(username, password, account, warehouse, database, schema):
+    """Establish connection to Snowflake database"""
     conn = snowflake.connector.connect(
         user=f'{username}',
         password=f'{password}',
@@ -45,6 +47,7 @@ def connect_snowflake(username, password, account, warehouse, database, schema):
 
 
 def write_snowflake(connection, dataframe, table):
+    """Import data into Snowflake database"""
     conn = connection
     
     start_time = time.time()

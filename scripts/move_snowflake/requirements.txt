@@ -2,3 +2,5 @@ pandas==1.5.2
 pymongo==4.3.2
 sqlalchemy==1.4.47
 snowflake-connector-python[pandas]==3.0.2
+findspark==2.0.1
+pyspark==3.3.2

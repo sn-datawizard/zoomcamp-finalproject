@@ -10,3 +10,5 @@ scripts/config.py
 scripts/config2.py
 scripts/config_snow.py
 scripts/mongo_db_delete.py
+scripts/.ipynb_checkpoints
+scripts/transformation.ipynb
