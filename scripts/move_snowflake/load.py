@@ -40,13 +40,13 @@ df['Region'].fillna('NONE', inplace=True)
 df['Population'].fillna(0.0, inplace=True)
 
 # Create pyspark session
-#findspark.init('C:\spark-3.3.0-bin-hadoop3')
-#os.environ['SPARK_HOME'] = 'C:\spark-3.3.0-bin-hadoop3'
-#os.environ["JAVA_HOME"] = 'C:\Program Files\Java\jdk-18.0.1.1'
+findspark.init('C:\spark-3.3.0-bin-hadoop3')
+os.environ['SPARK_HOME'] = 'C:\spark-3.3.0-bin-hadoop3'
+os.environ["JAVA_HOME"] = 'C:\Program Files\Java\jdk-18.0.1.1'
 
 spark = SparkSession.builder.master("local[*]").appName("test").getOrCreate()
 
-# Create pyspark dataframes and SQL table
+# Create pyspark dataframes and SQL table to transform data
 spark_df = spark.createDataFrame(df)
 spark_df.registerTempTable('table1')
 
@@ -81,6 +81,7 @@ warehouse = config_snow.warehouse
 database = config_snow.database
 schema = config_snow.schema
 
+table2 = "POPULATION_DATA"
 table3 = "GROWTH_DATA"
 
 # Establish Snowflake connection
@@ -89,4 +90,9 @@ connection = helpers.connect_snowflake(username, password, account, warehouse, d
 # Upload dataframes
 helpers.write_snowflake(connection, df_transformed, table3)
 
+df['Year'] = pd.to_datetime(df['Year'].astype(str) + '-12-31', format='%Y-%m-%d').dt.date
+print(df.head(5))
+print(df.dtypes)
+helpers.write_snowflake(connection, df, table2)
 
+spark.stop()
