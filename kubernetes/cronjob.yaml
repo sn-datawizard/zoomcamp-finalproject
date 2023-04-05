@@ -10,12 +10,12 @@ spec:
         spec:
           containers:
           - name: scraper
-            image: stefannikesh/capstone:scraper
+            image: <username>/<image:tag>
             command: ["./scraper.sh"]
           - name: apicall
-            image: stefannikesh/capstone:apicall
+            image: <username>/<image:tag>
             command: ["./apicall.sh"]
           - name: movesnowflake
-            image: stefannikesh/capstone:movesnowflake
+            image: <username>/<image:tag>
             command: ["./movesnowflake.sh"]
           restartPolicy: OnFailure

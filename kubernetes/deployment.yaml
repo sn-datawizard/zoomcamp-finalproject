@@ -14,14 +14,14 @@ spec:
     spec:   
       containers:
       - name: scraper
-        image: stefannikesh/capstone:scraper
+        image: <username>/<image:tag>
         ports:
         - containerPort: 8080
       - name: apicall
-        image: stefannikesh/capstone:apicall
+        image: <username>/<image:tag>
         ports:
         - containerPort: 8080
       - name: movesnowflake
-        image: stefannikesh/capstone:movesnowflake
+        image: <username>/<image:tag>
         ports:
         - containerPort: 8080
