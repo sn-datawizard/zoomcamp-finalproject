@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstone-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: capstone
+  template:
+    metadata:
+      labels:
+        app: capstone
+    spec:   
+      containers:
+      - name: scraper
+        image: stefannikesh/capstone:scraper
+        ports:
+        - containerPort: 8080
+      - name: apicall
+        image: stefannikesh/capstone:apicall
+        ports:
+        - containerPort: 8080
+      - name: movesnowflake
+        image: stefannikesh/capstone:movesnowflake
+        ports:
+        - containerPort: 8080

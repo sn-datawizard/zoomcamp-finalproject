@@ -1,0 +1,21 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: capstone-cronjob
+spec:
+  schedule: "0 0 1 * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: scraper
+            image: stefannikesh/capstone:scraper
+            command: ["./scraper.sh"]
+          - name: apicall
+            image: stefannikesh/capstone:apicall
+            command: ["./apicall.sh"]
+          - name: movesnowflake
+            image: stefannikesh/capstone:movesnowflake
+            command: ["./movesnowflake.sh"]
+          restartPolicy: OnFailure
