@@ -5,8 +5,6 @@ The world's population has been growing at an unprecedented rate. Understanding 
 
 The visualization should provide insights into how population growth has evolved over time, which continents and countries have experienced the most significant growth, and how growth rates have varied across regions. 
 
-Furthermore, the visualization should be intuitive and accessible to a wide range of audiences to raise awareness about population issues.
-
 ### Data sources:
 World Bank Data API (https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation)
 
@@ -31,7 +29,7 @@ Webpage with world continent data (https://statisticstimes.com/geography/countri
 ![Alt text](./Datapipeline-Architecture.PNG?raw=true "Data Pipeline Diagram")
 
 ## Dashboard
-The visualization can be accessed here: **https://lookerstudio.google.com/s/h6FpjThM-Zw**
+The visualization can be accessed here: **https://lookerstudio.google.com/s/ji2oilMWA7o**
 
 ![Alt text](./Dashboard-Page1.PNG?raw=true "Dashboard Page 1")
 
